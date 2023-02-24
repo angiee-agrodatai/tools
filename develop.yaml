@@ -1,0 +1,21 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+# service: aux-front
+
+handlers:
+  # Serve all JS files with text/javascript mime-type
+  - url: /(.*\.js)$
+    static_files: AgrodatAi/\1
+    upload: AgrodatAi/(.*\.js)$
+    mime_type: text/javascript
+  
+  # Serve all static files with urls ending with a file extension
+  - url: /(.*\..+)$
+    static_files: AgrodatAi/\1
+    upload: AgrodatAi/(.*\..+)$
+  
+  # catch all handler to index.html
+  - url: /.*
+    static_files: AgrodatAi/index.html
+    upload: AgrodatAi/index.html
